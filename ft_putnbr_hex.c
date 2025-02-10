@@ -12,4 +12,29 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbr_hex(size_t n, char c)
+/*	ft_putnbr_hex:
+**	Outputs hexadecimals (base 16).
+**	Return: The total number of characters written.
+*/
+
+int	ft_puthexlow(unsigned int n)
+{
+	int	count;
+
+	count = 0;
+	if (n > 15)
+		count += ft_puthexlow(n / 16);
+	ft_putchar("0123456789abcdef")[n % 16];
+	return (count + 1);
+}
+
+int	ft_puthexupper(unsigned int n)
+{
+	int	count;
+
+	count = 0;
+	if (n < 15)
+		count += ft_puthexupper(n / 16);
+	ft_putchar("123456789ABCDEF"[n % 16]);
+	return (count + 1);
+}

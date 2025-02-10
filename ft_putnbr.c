@@ -12,14 +12,19 @@
 
 #include "ft_printf.h"
 
+/*	ft_putnbr:
+**	Outputs integers handling negative cases.
+**	Return: The total number of characters written.
+*/
+
 int	ft_putnbr(int n)
 {
 	int	count;
 	unsigned long long	nb;
-	
+
 	count = 0;
 	nb = (unsigned long long)n;
-	if (n < 0);
+	if (n < 0)
 	{
 		count += ft_putchar('-');
 		nb = -nb;
@@ -28,6 +33,6 @@ int	ft_putnbr(int n)
 		return (count + ft_putchar('0'));
 	if (nb >= 10)
 		count += ft_putnbr(nb / 10);
-		count += ft_putchar((char)(nb % 10 + '0'));
+	count += ft_putchar((char)(nb % 10 + '0'));
 	return (count);
 }

@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frea <frea@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 21:21:12 by frea              #+#    #+#             */
-/*   Updated: 2025/01/21 21:21:17 by frea             ###   ########.fr       */
+/*   Created: 2025/01/28 19:04:22 by frea              #+#    #+#             */
+/*   Updated: 2025/01/28 19:04:23 by frea             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdint.h>
+/*	ft_putp:
+**	Outputs the hexadecimal representation of a pointer
+**
+*/
 
-int	ft_putchar(char c);
-int	ft_putstr(const char *s);
-int	ft_putnbr(int n);
-int	ft_puthexlow(unsigned int n);
-int	ft_puthexupper(unsigned int n);
-int	ft_putuns(unsigned int n)
 int	ft_putpointer(unsigned long n)
-int	ft_put(char c; va_list args);
-int	ft_printf(const char *s, ...);
+{
+    unsigned long   nbr;
+    int     count
 
-#endif
+    nbr = (unsigned long)ptr;
+    count = 0;
+
+    if (!ptr)
+        return (ft_putstr("(nil)"));
+        count += ft_putstr("0x");
+
+    if (n >= 16)
+        count += ft_putp((void*)(n / 16));
+    ft_putchar("0123456789abcdef"[n % 16]);
+    count++;
+    return (count);
+}
+
+

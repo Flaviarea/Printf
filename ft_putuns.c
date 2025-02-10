@@ -13,10 +13,10 @@
 #include "ft_printf.h"
 
 /*	ft_putuns:
-**	Writes the unsigned integer 'nb' to the standard output.
-**	The function recursively divides 'nb' by 10 to process each digit,
+**	Outputs only non-negative numbers.
+**	The function recursively divides 'n' by 10 to process each digit,
 **	and then writes each digit to the standard output using ft_putchar.
-**	The total number of characters written is accumulated and returned.
+**	Return: The total number of characters written.
 */
 
 int	ft_putuns(unsigned int n)
@@ -25,9 +25,7 @@ int	ft_putuns(unsigned int n)
 
 	count = 0;
 	if (n >= 10)
-	{
 		count += ft_putuns(n / 10);
-	}
-	count += ft_putchar((char)(n % 10 + '0'));
-	return (count);
+	ft_putchar("0123456789"[n % 10]);
+	return (count + 1);
 }
