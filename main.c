@@ -4,7 +4,7 @@
 int main()
 {
 
-char test_string[] = "I wonder if this works";
+char *test_string = "I wonder if this works";
 
 ft_printf ("Test:	Char %c - String %s - Pointer %p - Decimal %d - Integer %ld - Unsigned Decimal %u - Hexadecimal Lowercase %x - Hexadecimal Uppercase %X - Percent Sign %%\n", '*', test_string, test_string, -789, -2147483648, 0, 963258, 36987123);
 	
