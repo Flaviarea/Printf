@@ -12,24 +12,25 @@
 
 #include "ft_printf.h"
 
-int ft_put(char c, va_list args)
+int	ft_put(char c, va_list args)
 {
 	int	count;
-	
+
 	count = 0;
-	
 	if (c == 'c')
-		count += ft_putchar(va_args(args, int)));
+		count += ft_putchar(va_arg(args, int));
 	else if (c == 's')
-		count += ft_putstr(va_args(args, char *));
-	else if (c == 'd') || (c == 'i')
-		count += ft_putnbr(va_args(args, int));
+		count += ft_putstr(va_arg(args, char *));
+	else if (c == 'd' || c == 'i')
+		count += ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
-		count += ft_putuns(va_args(args, unsigned int));
+		count += ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'p')
-		count += ft_putp(va_args(args, void *));
-	else if (c == 'x') || (c == 'X')
-		count += ft_putnbr_hex(va_args(args, long long);
+		count += ft_putpointer(va_arg(args, unsigned long));
+	else if (c == 'x')
+		count += ft_puthexlow(va_arg(args, unsigned int));
+	else if (c == 'X')
+		count += ft_puthexupper(va_arg(args, unsigned int));
 	else if (c == '%')
 		count += ft_putchar('%');
 	return (count);

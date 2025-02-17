@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putp.c                                          :+:      :+:    :+:   */
+/*   ft_putpointer.c                                          :+:      :+:    */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frea <frea@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,28 +12,24 @@
 
 #include "ft_printf.h"
 
-/*	ft_putp:
+/*	ft_putpointer:
 **	Outputs the hexadecimal representation of a pointer
 **
 */
 
 int	ft_putpointer(unsigned long n)
 {
-    unsigned long   nbr;
-    int     count
+	int	count;
 
-    nbr = (unsigned long)ptr;
-    count = 0;
-
-    if (!ptr)
-        return (ft_putstr("(nil)"));
-        count += ft_putstr("0x");
-
-    if (n >= 16)
-        count += ft_putp((void*)(n / 16));
-    ft_putchar("0123456789abcdef"[n % 16]);
-    count++;
-    return (count);
+	count = 0;
+	if (n == 0)
+	{
+		return (ft_putstr("(nil)"));
+	}
+	count += ft_putstr("0x");
+	if (n >= 16)
+		count += ft_putpointer(n / 16);
+	ft_putchar("0123456789abcdef"[n % 16]);
+	count++;
+	return (count);
 }
-
-

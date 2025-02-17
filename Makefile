@@ -1,27 +1,33 @@
 NAME = libftprintf.a
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+HEADER = ft_printf.h
+FLAGS = -Wall -Wextra -Werror
+SRC = ft_put.c \
+	ft_putstr.c \
+	ft_putnbr.c \
+	ft_puthexlow.c \
+	ft_puthexupper.c \
+	ft_putuns.c \
+	ft_putpointer.c \
+	ft_printf.c \
+	ft_putchar.c
 
-SRCS = ft_check_char.c ft_printf.c ft_put.c ft_putchar.c ft_putnbr.c ft_putnbr_hex.c ft_putp.c ft_putstr.c ft_putuns.c
-
-OBJECTS = $(SRCS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 %.o: %.c
-	$(CC) $(CCFLAGS) -c $< -o $@
-	
-run: $(NAME)
-	$(CC) $(CFLAGS) -o main main.c $(NAME)
-	./main
+	cc $(FLAGS) -I . -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJ)
+
 fclean: clean
-	rm -f $(NAME) main
-re: flcean all
+	rm -f $(NAME) libftprintf.a
+
+re: fclean all
 
 .PHONY: all clean fclean re

@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   puthexupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frea <frea@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: frea <frea@student.42berlin.de>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 21:22:29 by frea              #+#    #+#             */
-/*   Updated: 2025/01/24 15:49:32 by frea             ###   ########.fr       */
+/*   Created: 2025/02/12 15:25:31 by frea              #+#    #+#             */
+/*   Updated: 2025/02/12 15:25:34 by frea             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
-{
-	va_list	args;
-	int		count;
+/*	ft_puthexupper:
+**	Outputs 
+**	Return: 
+*/
 
-	va_start(args, str);
+int	ft_puthexupper(unsigned int n)
+{
+	int	count;
+
 	count = 0;
-	while (*str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			count += ft_put(*str, args);
-		}
-		else
-			count += ft_putchar(*str);
-		str++;
-	}
-	va_end(args);
-	return (count);
+	if (n < 15)
+		count += ft_puthexupper(n / 16);
+	ft_putchar("123456789ABCDEF"[n % 16]);
+	return (count + 1);
 }
