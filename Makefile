@@ -26,7 +26,7 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME) libftprintf.a
+	rm -f $(NAME)
 
 re: fclean all
 

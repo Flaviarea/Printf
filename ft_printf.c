@@ -33,3 +33,12 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
+
+#include <stdio.h>
+
+int main()
+{
+ft_printf("test int: this is integer %d\n", 42);
+printf ("orig: this is integer %d\n", 42);
+}
+

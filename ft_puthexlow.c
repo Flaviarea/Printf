@@ -20,10 +20,11 @@
 int	ft_puthexlow(unsigned int n)
 {
 	int	count;
+	char	hex_chars[]= "0123456789abcdef";
 
 	count = 0;
 	if (n > 15)
 		count += ft_puthexlow(n / 16);
-	ft_putchar("0123456789abcdef"[n % 16]);
+	ft_putchar(hex_chars[n % 16]);
 	return (count + 1);
 }
