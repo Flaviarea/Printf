@@ -19,7 +19,7 @@ int	ft_putstr(const char *s)
 	count = 0;
 	if (!s)
 	{
-		return(ft_putstr("(null)"));
+		return (ft_putstr("(null)"));
 	}
 	while (*s)
 	{

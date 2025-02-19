@@ -19,10 +19,11 @@
 
 int	ft_puthexupper(unsigned int n)
 {
-	int	count;
-	char	*hex_chars = "0123456789ABCDEF";
+	int		count;
+	char	*hex_chars;
 
 	count = 0;
+	hex_chars = "0123456789ABCDEF";
 	if (n > 16)
 		count += ft_puthexupper(n / 16);
 	count += ft_putchar(hex_chars[n % 16]);

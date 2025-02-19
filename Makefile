@@ -1,15 +1,15 @@
 NAME = libftprintf.a
 HEADER = ft_printf.h
 FLAGS = -Wall -Wextra -Werror
-SRC = ft_put.c \
-	ft_putstr.c \
+SRC = ft_putstr.c \
 	ft_putnbr.c \
 	ft_puthexlow.c \
 	ft_puthexupper.c \
 	ft_putuns.c \
 	ft_putpointer.c \
 	ft_printf.c \
-	ft_putchar.c
+	ft_putchar.c \
+	ft_put.c
 
 OBJ = $(SRC:.c=.o)
 
