@@ -26,7 +26,7 @@ int	ft_put(char c, va_list args)
 	else if (c == 'u')
 		count += ft_putuns(va_arg(args, unsigned int));
 	else if (c == 'p')
-		count += ft_putpointer(va_arg(args, unsigned long));
+		count += ft_putpointer((uintptr_t)va_arg(args, void *));
 	else if (c == 'x')
 		count += ft_puthexlow(va_arg(args, unsigned int));
 	else if (c == 'X')

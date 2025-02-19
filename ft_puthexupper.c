@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 /*	ft_puthexupper:
 **	Outputs 
@@ -21,11 +20,11 @@
 int	ft_puthexupper(unsigned int n)
 {
 	int	count;
-	char	hex_chars[]= "0123456789ABCDEF";
+	char	*hex_chars = "0123456789ABCDEF";
 
 	count = 0;
-	if (n > 15)
+	if (n > 16)
 		count += ft_puthexupper(n / 16);
-	ft_putchar(hex_chars[n % 16]);
-	return (count + 1);
+	count += ft_putchar(hex_chars[n % 16]);
+	return (count);
 }

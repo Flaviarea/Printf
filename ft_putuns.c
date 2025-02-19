@@ -26,6 +26,6 @@ int	ft_putuns(unsigned int n)
 	count = 0;
 	if (n >= 10)
 		count += ft_putuns(n / 10);
-	ft_putchar("0123456789"[n % 10]);
-	return (count + 1);
+	count += ft_putchar("0123456789"[n % 10]);
+	return (count);
 }

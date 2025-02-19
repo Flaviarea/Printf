@@ -19,14 +19,12 @@ int	ft_putstr(const char *s)
 	count = 0;
 	if (!s)
 	{
-		write (1, "(null)", 6);
-		return (6);
+		return(ft_putstr("(null)"));
 	}
 	while (*s)
 	{
-		count += write (1, s, 1);
+		count += ft_putchar(*s);
 		s++;
 	}
 	return (count);
 }
-

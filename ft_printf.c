@@ -12,6 +12,8 @@
 
 #include "ft_printf.h"
 
+int	ft_is_valid_format(char c);
+
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
@@ -24,7 +26,15 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			count += ft_put(*str, args);
+			if(!*str)
+				break;
+			if (!ft_is_valid_format(*str))
+			{
+				count += ft_putchar('%');
+				count += ft_putchar(*str);
+			}
+			else
+				count += ft_put(*str, args);
 		}
 		else
 			count += ft_putchar(*str);
@@ -34,11 +44,8 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-#include <stdio.h>
-
-int main()
+int ft_is_valid_format(char c)
 {
-ft_printf("test int: this is integer %d\n", 42);
-printf ("orig: this is integer %d\n", 42);
+    return (c == 'c' || c == 's' || c == 'p' || c == 'd' || 
+            c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == '%');
 }
-
