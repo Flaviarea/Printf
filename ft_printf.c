@@ -57,8 +57,9 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			str++;
-			buff += ft_put(*(str), args);
+			if (!*(++str))
+				return (-1);
+			buff += ft_put(*str, args);
 		}
 		else
 			buff += ft_putchar(*str);
